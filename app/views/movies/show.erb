@@ -1,0 +1,13 @@
+<h3><%= @movie.title %></h3>
+<p><em><%= @movie.genre %></em> | <%= @movie.release_year %> | Directed by: <%= @movie.director %></p>
+
+<p><%= @movie.description %></p>
+
+<form action="/movies/<%= @movie.id %>/edit" method="GET">
+    <input type="submit" value="Edit">
+</form>
+
+<form action="/movies/<%= @movie.id %>/delete" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form>

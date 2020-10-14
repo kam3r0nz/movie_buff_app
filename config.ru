@@ -7,4 +7,6 @@ end
 use Rack::MethodOverride
 
 use UsersController
+use MoviesController
+use ReviewsController
 run ApplicationController
