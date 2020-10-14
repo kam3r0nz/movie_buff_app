@@ -13,14 +13,14 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: #fff;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
   }
 
   .wrapper {
-    background: #fff;
+    background: gray;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -28,11 +28,14 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 50px; 
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 48px;
     line-height: 54px;
+    font-family: 'Pacifico', cursive;
   }
 
   h2 {
@@ -49,6 +52,7 @@
 
   p {
     margin-bottom: 18px;
+    font-family: 'Roboto', sans-serif;
   }
 
   .main {
@@ -81,6 +85,11 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
+  textarea {
+    width: 200px;
+    height: 100px;
+  } 
 }
 
 @media screen and (max-width: 600px) {
@@ -112,4 +121,8 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+  textarea {
+    width: 200px;
+  } 
 }
