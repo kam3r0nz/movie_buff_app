@@ -1,7 +1,7 @@
 <form action="/movies/new" method="GET">
-    <input type="submit" value="Add Movie">
+    <input type="submit" value="+ Add Movie">
 </form><br>
 
 <% @movies.each do |movie| %>
-    <a href="/movies/<%= movie.id %>"><%= movie.title %></a>
+   • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
 <% end %>

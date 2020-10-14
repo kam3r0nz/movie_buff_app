@@ -16,26 +16,33 @@
     background-color: #fff;
     color: #333;
     font-family: Sans-Serif;
-    line-height: 18px;
+    line-height: 20px;
   }
 
   .wrapper {
-    background: gray;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    background: #eeeeee;
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
-    font-family: 'Roboto', sans-serif;
-    border-radius: 50px; 
+    border-radius: 15px; 
   }
+
+  input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 90px;
 
   h1 {
     font-size: 48px;
-    line-height: 54px;
+    line-height: 75px;
     font-family: 'Pacifico', cursive;
+    float: right;
   }
 
   h2 {
@@ -54,6 +61,15 @@
     margin-bottom: 18px;
     font-family: 'Roboto', sans-serif;
   }
+
+  a:link, a:visted {
+    color: #000;
+    text-decoration: none;
+  }
+
+  form {
+    display: inline;
+}
 
   .main {
     overflow: hidden;
@@ -87,9 +103,15 @@
   }
 
   textarea {
+    font-family: 'Times New Roman', Times, serif;
     width: 200px;
     height: 100px;
   } 
+
+  .logo {
+    width:25%;
+    height:25%;
+  }
 }
 
 @media screen and (max-width: 600px) {
