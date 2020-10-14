@@ -14,3 +14,7 @@
     <textarea name="description" id="title"><%= @movie.description %></textarea></p>
     <input type="submit" value="Save Changes">
 </form>
+
+<form action="/movies/<%= @movie.id %>" method="GET">
+    <input type="submit" value="Cancel">
+</form>
