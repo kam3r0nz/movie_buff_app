@@ -1,2 +1,7 @@
-<h2>Hello there <%= @user.username %>!</h2>
+<h2>Hello there, <%= @user.username %>!</h2>
 
+<% @user.movies.each do |movie| %>
+    <%= movie.title %>
+<% end %><br>
+
+<a href="/movies/new">Add a Movie</a>

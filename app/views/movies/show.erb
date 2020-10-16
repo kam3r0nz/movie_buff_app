@@ -3,6 +3,11 @@
 
 <p><%= @movie.description %></p>
 
+<form action="http://www.google.com/search" method="get">
+    <input type="hidden" name="q" value="<%= @movie.title %>"/>
+    <input type="submit" value="View More" />
+</form>
+
 <form action="/movies/<%= @movie.id %>/edit" method="GET">
     <input type="submit" value="Edit">
 </form>
