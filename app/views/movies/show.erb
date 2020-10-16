@@ -1,11 +1,15 @@
 <h3><%= @movie.title %></h3>
 <p><em><%= @movie.genre %></em> | <%= @movie.release_year %> | Directed by: <%= @movie.director %></p>
 
-<p><%= @movie.description %></p>
+<p><%= @movie.description %></p><br>
+
+<form action="/movies" method="GET">
+    <input type="submit" value="Back to Movies">
+</form>
 
 <form action="http://www.google.com/search" method="get">
     <input type="hidden" name="q" value="<%= @movie.title %>"/>
-    <input type="submit" value="View More" />
+    <input type="submit" value="More Info" />
 </form>
 
 <form action="/movies/<%= @movie.id %>/edit" method="GET">
@@ -15,8 +19,4 @@
 <form action="/movies/<%= @movie.id %>/delete" method="POST">
     <input type="hidden" id="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete">
-</form>
-
-<form action="/movies" method="GET">
-    <input type="submit" value="< Back to Movies">
 </form>

@@ -1,11 +1,19 @@
 class MoviesController < ApplicationController
     get '/movies' do
         @movies = Movie.all
-        erb :'movies/index'
+        if logged_in?
+            erb :'movies/index'
+        else
+            redirect "/login"
+        end
     end
 
     get '/movies/new' do
-        erb :'movies/new'
+        if logged_in?
+            erb :'movies/new'
+        else
+            redirect "/login"
+        end
     end
 
     post '/movies' do
@@ -14,13 +22,21 @@ class MoviesController < ApplicationController
     end
 
     get '/movies/:id' do
-        @movie = Movie.find(params[:id])
-        erb :'movies/show'
+        if logged_in?
+            @movie = Movie.find(params[:id])
+            erb :'movies/show'
+        else
+            redirect "/login"
+        end
     end
 
     get '/movies/:id/edit' do
-        @movie = Movie.find(params[:id])
-        erb :'movies/edit'
+        if logged_in?
+            @movie = Movie.find(params[:id])
+            erb :'movies/edit'
+        else
+            redirect "/login"
+        end
     end
 
     patch '/movies/:id' do

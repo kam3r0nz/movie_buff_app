@@ -1,6 +1,13 @@
 <% @reviews.each do |review| %>
     <p>Name: <%= review.name %></p>
     <p>Date: <%= review.date %></p>
-    <p>Rating: <%= review.rating %>/10</p>
+    <p>Rating: <%= review.rating %>/5</p>
     <p><%= review.content %></p>
+    <form action="/reviews/<%= review.id %>" method="GET">
+        <input type="submit" value="View">
+    </form>
+
+    
+    <br><br>
 <% end %>
+

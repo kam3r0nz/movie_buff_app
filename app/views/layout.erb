@@ -16,7 +16,19 @@
   </head>
   <body>
     <div class="wrapper">
-      <h1>Movie Buff</h1><br>
+      <h1>Movie Buff</h1>
+      
+      <a href="/">Home</a> &#8226; 
+
+      <% if logged_in? %>
+        <a href="/movies">Movies</a> &#8226;
+        <a href="/reviews">Reviews</a> &#8226;
+        <a href="/logout">Log out</a>
+      <% else %>
+        <a href="/login">Log in</a> &#8226; <a href="/signup">Sign up</a>
+      <% end%>
+      
+      <br>
       <br>
         <%= yield %>
 

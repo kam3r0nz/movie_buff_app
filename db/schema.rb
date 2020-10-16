@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20201013225648) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "date"
-    t.integer  "rating"
-    t.string   "content"
-    t.integer  "movie_id"
+    t.string  "name"
+    t.text    "date"
+    t.integer "rating"
+    t.string  "content"
+    t.integer "movie_id"
   end
 
   create_table "users", force: :cascade do |t|

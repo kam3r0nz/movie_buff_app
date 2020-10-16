@@ -1,0 +1,14 @@
+<p>Name: <%= @review.name %></p>
+<p>Date: <%= @review.date %></p>
+<p>Rating: <%= @review.rating %>/5</p>
+<%= @review.content %>
+
+<form action="/reviews/<%= @review.id %>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+    <input type="submit" value="Edit">
+</form>
+
+<form action="/reviews/<%= @review.id %>/delete" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form>
