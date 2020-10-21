@@ -18,9 +18,7 @@
 <form action="/movies/<%= @movie.id %>/edit" method="GET">
     <input type="submit" value="Edit">
 </form>
-<% end %>
 
-<% if @movie.user == current_user %>
     <form action="/movies/<%= @movie.id %>/delete" method="POST">
         <input type="hidden" id="hidden" name="_method" value="DELETE">
         <input type="submit" value="Delete">
@@ -40,14 +38,20 @@
     <br><p>No reviews yet!</p>
 <% else %>
     <% @movie.reviews.each do |review| %>
-        <p>User: <%= review.username %></p>
+        <p>User: <%= review.user %></p>
         <p>Date: <%= review.date %></p>
         <p>Rating: <%= review.rating %>/5</p>
         <p>Comment: <%= review.content %></p>
         
-        <form action="/reviews/<%= review.id %>" method="GET">
-            <input type="submit" value="View">
-        </form>
+        <% if review.user == current_user %>
+            <form action="/reviews/<%= review.id %>/edit" method="GET">
+                <input type="submit" value="Edit">
+            </form>
+
+            <form action="/reviews/<%= review.id %>/delete" method="POST">
+                <input type="hidden" id="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete">
+            </form>
+        <% end %>
     <% end %>
-        <br><br>
 <% end %>
