@@ -30,6 +30,7 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 50%;
+    opacity: 0.9;
   }
 
   .header {

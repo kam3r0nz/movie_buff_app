@@ -35,7 +35,7 @@
 <br><br>
 
 <% if @movie.reviews.size == 0 %>
-    <br><p>No reviews yet!</p>
+    <p>No reviews yet!</p>
 <% else %>
     <% @movie.reviews.each do |review| %>
         <p>User: <%= review.user.username %></p>
