@@ -13,6 +13,9 @@
 
   /* --- Welcome Page Styles --- */
   body {
+    background-image: url("https://i.ibb.co/r5xQv8t/popcorn-4885565-1920.png");
+    background-attachment: fixed;
+    background-size: cover;
     background-color: #206a5d;
     color: #000;
     font-family: 'Roboto Condensed', sans-serif;
@@ -21,11 +24,17 @@
   }
 
   .wrapper {
-    background: transparent;
+    background-color: #206a5d;
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 50%;
+    border-radius: 25px;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
   }
 
   input[type="submit"] {
@@ -174,8 +183,9 @@
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 36px;
     line-height: 36px;
+    letter-spacing: 0px;
   }
 
   h2 {
