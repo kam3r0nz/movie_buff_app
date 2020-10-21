@@ -17,6 +17,7 @@
     color: #000;
     font-family: 'Roboto Condensed', sans-serif;
     line-height: 20px;
+    letter-spacing: -0.5px;
   }
 
   .wrapper {
@@ -24,14 +25,14 @@
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
-    width: 95%;
+    width: 50%;
   }
 
   input[type="submit"] {
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: transparent;
+    background-color: #000;
     border: none;
-    color: black;
+    color: #fff;
     padding: 5px 10px;
     text-decoration: none;
     text-transform: uppercase;
@@ -41,6 +42,17 @@
   }
 
   input[type="text"], input[type="password"], input[type="number"] {
+    background-color: transparent;
+    border: none;
+    color: black;
+    padding: 6px;
+    text-decoration: none;
+    cursor: text;
+    border: 1px solid black;
+    margin: 2px; 
+  }
+
+  .select {
     background-color: transparent;
     border: none;
     color: black;
@@ -94,8 +106,12 @@
   }
 
   h3 {
-    font-size: 18px;
-    line-height: 36px;
+    color: #fff;
+    background-color: #000;
+    font-size: 25px;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
   }
 
   p {
@@ -107,6 +123,7 @@
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 2px;
+    font-size: 20px;
   }
 
   a:hover {

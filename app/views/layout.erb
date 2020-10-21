@@ -21,7 +21,7 @@
       <a href="/">Home</a> &#8226; 
 
       <% if logged_in? %>
-        <a href="/movies">Movies</a> &#8226;
+        <a href="/movies">Your Movies</a> &#8226;
         <a href="/reviews">Reviews</a> &#8226;
         <a href="/logout">Log out</a>
       <% else %>
@@ -30,7 +30,8 @@
       
       <br>
       <br>
-        <%= yield %>
+      
+      <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2020 <strong>Movie Buff</strong></small>

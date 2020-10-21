@@ -1,5 +1,6 @@
+<h3>Your Reviews:</h3>
 <% @reviews.each do |review| %>
-    <p>Name: <%= review.name %></p>
+    <p>Name: <%= review.user.username %></p>
     <p>Date: <%= review.date %></p>
     <p>Rating: <%= review.rating %>/5</p>
     <p><%= review.content %></p>

@@ -1,10 +1,10 @@
 <h3><%= @movie.title %></h3>
-<p><em><%= @movie.genre %></em> | <%= @movie.release_year %> | Directed by: <%= @movie.director %></p>
+<h4><em><%= @movie.genre %></em> | <%= @movie.release_year %> | Directed by: <%= @movie.director %></h4>
 
 <p><%= @movie.description %></p><br>
 
-<form action="/movies" method="GET">
-    <input type="submit" value="Back to Movies">
+<form action="/" method="GET">
+    <input type="submit" value="All Movies">
 </form>
 
 <form action="http://www.google.com/search" method="get">
@@ -12,11 +12,31 @@
     <input type="submit" value="More Info" />
 </form>
 
+<% if @movie.user == current_user %>
 <form action="/movies/<%= @movie.id %>/edit" method="GET">
     <input type="submit" value="Edit">
 </form>
+<% end %>
 
-<form action="/movies/<%= @movie.id %>/delete" method="POST">
-    <input type="hidden" id="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete">
-</form>
+<% if @movie.user == current_user %>
+    <form action="/movies/<%= @movie.id %>/delete" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form><br><br>
+<% end %>
+
+
+<h3>Reviews:</h3>
+
+<form action="/reviews/new" method="GET">
+    <input type="submit" value="Add Review">
+</form><br>
+
+<ul>
+    <% @reviews.each do |review| %>
+        <li><%= review.user.username %></li>
+        <li>Rating: <%= review.rating %>/5</li>
+        <li><%= review.content %></li>
+        <br>
+    <% end %>
+</ul>

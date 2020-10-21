@@ -1,7 +1,7 @@
-<p>Name: <%= @review.name %></p>
+<p>Name: <%= current_user.username %></p>
 <p>Date: <%= @review.date %></p>
 <p>Rating: <%= @review.rating %>/5</p>
-<%= @review.content %>
+<p><%= @review.content %></p>
 
 <form action="/reviews/<%= @review.id %>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
