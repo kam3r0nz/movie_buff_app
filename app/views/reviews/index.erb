@@ -1,4 +1,9 @@
 <h3>Your Reviews:</h3>
+
+<form action="/reviews/new" method="GET">
+    <input type="submit" value="Add Review">
+</form><br><br>
+
 <% @reviews.each do |review| %>
     <h4><%= review.movie.title %></h4>
     <p>Date: <%= review.date %></p>

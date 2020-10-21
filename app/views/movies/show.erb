@@ -38,7 +38,7 @@
     <br><p>No reviews yet!</p>
 <% else %>
     <% @movie.reviews.each do |review| %>
-        <p>User: <%= review.user %></p>
+        <p>User: <%= review.user.username %></p>
         <p>Date: <%= review.date %></p>
         <p>Rating: <%= review.rating %>/5</p>
         <p>Comment: <%= review.content %></p>

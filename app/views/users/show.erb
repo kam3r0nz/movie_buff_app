@@ -1,8 +1,10 @@
 <h2>Hello there, <%= @user.username %>!</h2>
 <h3>All Movies</h3>
-<% @movies.each do |movie| %>
-   • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
-<% end %><br>
+
 <form action="/movies/new" method="GET">
     <input type="submit" value="Add Movie">
-</form>
+</form><br><br>
+
+<% @movies.each do |movie| %>
+   • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
+<% end %>
