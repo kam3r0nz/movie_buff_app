@@ -24,6 +24,7 @@ class MoviesController < ApplicationController
     get '/movies/:id' do
         if logged_in?
             @movie = Movie.find(params[:id])
+            @movies = Movie.all
             erb :'movies/show'
         else
             redirect "/login"
@@ -48,6 +49,6 @@ class MoviesController < ApplicationController
     delete '/movies/:id/delete' do
         @movie = Movie.find(params[:id])
         @movie.delete
-        redirect "/movies"
+        redirect "/movies/#{@movie.id}"
     end
 end

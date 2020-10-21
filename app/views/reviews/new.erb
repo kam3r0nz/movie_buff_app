@@ -1,8 +1,6 @@
 <form action="/reviews" method="POST">
-    <p><label for="name">Username:</label>
-    <input type="text" name="username" id="name" value="<%= current_user.username %>" readonly></p>
-    <p><label for="text">Date:</label>
-    <input type="text" name="date" id="text" value="<%= Time.now.strftime("%m/%d/%Y") %>" readonly></p>
+    <p><input type="hidden" name="username" id="name" value="<%= current_user.username %>"></p>
+    <p><input type="hidden" name="date" id="date" value="<%= Time.now.strftime("%m/%d/%Y") %>"></p>
     <p><label for="movie">Movie:</label>
     <select name="movie" id="movie">
         <% @movies.each do |movie| %>
@@ -10,13 +8,7 @@
         <% end %>
     </select>
     <p><label for="rating">Rating:</label>
-    <select name="rating" id="rating">
-        <option value="1">&#9733;</option>
-        <option value="2">&#9733;&#9733;</option>
-        <option value="3">&#9733;&#9733;&#9733;</option>
-        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
-        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-    </select></p>
+    <input type="number" min="0" max="5" name="rating" id="rating">/5</p>
     <p><label for="content">Comments:</label>
     <textarea name="content" id="content"></textarea></p>
     <input type="submit">

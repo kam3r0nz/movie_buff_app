@@ -1,18 +1,12 @@
 <form action="/reviews/<%= @review.id %>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="patch">
-    <p><label for="name">Name:</label>
-    <input type="text" name="name" id="name"></p>
+    <p><label for="name">Movie:</label>
+    <input type="text" name="name" id="name" value="<%= @review.movie.title %>" readonly></p>
     <p><label for="text">Date:</label>
     <input type="text" name="date" id="text" value="<%= Time.now.strftime("%m/%d/%Y") %>" readonly></p>
     <p><label for="rating">Rating:</label>
-    <select name="rating" id="rating">
-        <option value="<%= @review.rating %>"></option>
-        <option value="1">&#9733;</option>
-        <option value="2">&#9733;&#9733;</option>
-        <option value="3">&#9733;&#9733;&#9733;</option>
-        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
-    </select></p>
+    <input type="number" min="0" max="5"  name="rating" id="rating" value="<%= @review.rating %>">/5</p>
     <p><label for="content">Comments:</label>
-    <input type="text" name="content" id="content"></p>
-    <input type="submit">
+    <textarea name="content" id="content"><%= @review.content %></textarea></p>
+    <input type="submit" value="Save">
 </form>

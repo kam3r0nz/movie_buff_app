@@ -42,13 +42,13 @@ class ReviewsController < ApplicationController
 
     patch '/reviews/:id' do
         @review = Review.find(params[:id])
-        @review.update(name: params[:name], date: params[:date], rating: params[:rating], content: params[:content])
+        @review.update(date: params[:date], rating: params[:rating], content: params[:content])
         redirect "/reviews/#{@review.id}"
     end
 
     delete '/reviews/:id/delete' do
         @review = Review.find(params[:id])
         @review.delete
-        redirect "/reviews"
+        redirect "/"
     end
 end

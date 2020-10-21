@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20201018210624) do
     t.string  "content"
     t.integer "movie_id"
     t.integer "user_id"
+    t.string  "username"
   end
 
   create_table "users", force: :cascade do |t|

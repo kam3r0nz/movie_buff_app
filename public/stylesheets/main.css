@@ -52,17 +52,6 @@
     margin: 2px; 
   }
 
-  .select {
-    background-color: transparent;
-    border: none;
-    color: black;
-    padding: 6px;
-    text-decoration: none;
-    cursor: text;
-    border: 1px solid black;
-    margin: 2px; 
-  }
-
   ::placeholder { 
     color: #000;
     opacity: 1; 
