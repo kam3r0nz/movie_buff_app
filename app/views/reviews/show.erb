@@ -1,4 +1,6 @@
-<p>Name: <%= current_user.username %></p>
+<h3><%= @review.movie.title %></h3>
+
+<p>Name: <%= @review.user.username %></p>
 <p>Date: <%= @review.date %></p>
 <p>Rating: <%= @review.rating %>/5</p>
 <p><%= @review.content %></p>

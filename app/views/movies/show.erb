@@ -30,13 +30,27 @@
 
 <form action="/reviews/new" method="GET">
     <input type="submit" value="Add Review">
-</form><br>
+</form><br><br>
 
-<ul>
-    <% @reviews.each do |review| %>
-        <li><%= review.user.username %></li>
-        <li>Rating: <%= review.rating %>/5</li>
-        <li><%= review.content %></li>
-        <br>
-    <% end %>
-</ul>
+<% if @movie.reviews.size == 0 %>
+    <br><p>No reviews yet!</p>
+<% else %>
+    <% @movie.reviews.each do |review| %>
+        <p><%= review.user.username %></p>
+        <p>Rating: <%= review.rating %>/5</p>
+        <p><%= review.content %></p>
+        
+        <% if review.user == current_user %>
+        <form action="/reviews/<%= review.id %>" method="POST">
+            <input type="hidden" id="hidden" name="_method" value="PATCH">
+            <input type="submit" value="Edit">
+        </form>
+
+        <form action="/reviews/<%= review.id %>/delete" method="POST">
+            <input type="hidden" id="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+        </form>
+        <% end %>
+        <br><br>
+        <% end %>
+<% end %>

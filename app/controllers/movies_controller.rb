@@ -25,7 +25,6 @@ class MoviesController < ApplicationController
         if logged_in?
             @movie = Movie.find(params[:id])
             # @reviews = Review.select {|r| r.movie = @movie}
-            @reviews = Review.all.select {|r| r.movie = @movie}
             erb :'movies/show'
         else
             redirect "/login"
