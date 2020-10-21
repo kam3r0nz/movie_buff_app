@@ -16,7 +16,8 @@
     background-image: url("https://i.ibb.co/r5xQv8t/popcorn-4885565-1920.png");
     background-attachment: fixed;
     background-size: cover;
-    background-color: #206a5d;
+    background-blend-mode: multiply;
+    background-color: #444;
     color: #000;
     font-family: 'Roboto Condensed', sans-serif;
     line-height: 20px;
@@ -29,12 +30,10 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 50%;
-    border-radius: 25px;
   }
 
   .header {
-    position: fixed;
-    top: 0;
+    text-align: center;
   }
 
   input[type="submit"] {
@@ -69,7 +68,7 @@
   input[type="submit"]:hover {
     background-color: #81b214;
     border: 1px solid #81b214;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
   }
 
   textarea {
@@ -100,7 +99,7 @@
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 28px;
     line-height: 36px;
     margin-bottom: 16px;
   }
@@ -112,6 +111,10 @@
     line-height: 20px;
     text-transform: uppercase;
     margin-bottom: 15px;
+  }
+
+  h4 {
+    font-size: 18px;
   }
 
   p {
@@ -128,7 +131,7 @@
 
   a:hover {
     color: #81b214;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
   }
 
   .main {
