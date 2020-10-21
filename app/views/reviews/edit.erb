@@ -10,3 +10,7 @@
     <textarea name="content" id="content"><%= @review.content %></textarea></p>
     <input type="submit" value="Save">
 </form>
+
+<form action="/reviews/<%= @review.id %>" method="GET">
+    <input type="submit" value="Cancel">
+</form>

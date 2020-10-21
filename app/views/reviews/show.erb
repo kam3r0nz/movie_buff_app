@@ -3,13 +3,11 @@
 <p>Rating: <%= @review.rating %>/5</p>
 <p>Comment: <%= @review.content %></p>
 
-<% if @review.user == current_user %>
-    <form action="/reviews/<%= @review.id %>/edit" method="GET">
-        <input type="submit" value="Edit">
-    </form>
+<form action="/reviews/<%= @review.id %>/edit" method="GET">
+    <input type="submit" value="Edit">
+</form>
 
-    <form action="/reviews/<%= @review.id %>/delete" method="POST">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-    </form>
-<% end %>
+<form action="/reviews/<%= @review.id %>/delete" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form>
