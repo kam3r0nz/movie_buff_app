@@ -24,11 +24,11 @@
     <form action="/movies/<%= @movie.id %>/delete" method="POST">
         <input type="hidden" id="hidden" name="_method" value="DELETE">
         <input type="submit" value="Delete">
-    </form><br><br>
-<% end %>
+    </form>
+<% end %><br><br>
 
 
-<h3>Reviews:</h3>
+<h3>Reviews</h3>
 
 <form action="/reviews/new" method="GET">
     <input type="submit" value="Add Review">

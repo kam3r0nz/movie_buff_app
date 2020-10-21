@@ -1,4 +1,4 @@
-<h3>Your Movies:</h3>
+<h3>Your Movies</h3>
 <% @movies.each do |movie| %>
    • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
 <% end %><br>

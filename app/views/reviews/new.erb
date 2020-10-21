@@ -6,7 +6,7 @@
     <p><label for="movie">Movie:</label>
     <select name="movie" id="movie">
         <% @movies.each do |movie| %>
-        <option value="<%= movie.title %>"><%= movie.title %>
+        <option value="<%= movie.id %>"><%= movie.title %>
         <% end %>
     </select>
     <p><label for="rating">Rating:</label>
@@ -15,6 +15,7 @@
         <option value="2">&#9733;&#9733;</option>
         <option value="3">&#9733;&#9733;&#9733;</option>
         <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
     </select></p>
     <p><label for="content">Comments:</label>
     <textarea name="content" id="content"></textarea></p>

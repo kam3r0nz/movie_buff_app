@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     end
 
     post '/reviews' do
-        @review = Review.create(date: params[:date], rating: params[:rating], content: params[:content], user: current_user)
+        @review = Review.create(date: params[:date], rating: params[:rating], content: params[:content], user: current_user, movie_id: params[:movie])
         redirect "/reviews/#{@review.id}"
     end
 
