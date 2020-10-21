@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
 
     get '/reviews/new' do
         if logged_in?
-            @movies = current_user.movies
+            @movies = Movie.all
             erb :'/reviews/new'
         else
             redirect "/login"

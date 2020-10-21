@@ -1,9 +1,7 @@
-<h3><%= @review.movie.title %></h3>
-
-<p>Name: <%= @review.user.username %></p>
+<p>User: <%= @review.user.username %></p>
 <p>Date: <%= @review.date %></p>
 <p>Rating: <%= @review.rating %>/5</p>
-<p><%= @review.content %></p>
+<p>Comment: <%= @review.content %></p>
 
 <form action="/reviews/<%= @review.id %>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="PATCH">

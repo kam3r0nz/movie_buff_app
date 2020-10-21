@@ -1,14 +1,20 @@
 <h3>Your Reviews:</h3>
 <% @reviews.each do |review| %>
-    <p>Name: <%= review.user.username %></p>
+    <h4><%= review.movie.title %></h4>
     <p>Date: <%= review.date %></p>
     <p>Rating: <%= review.rating %>/5</p>
-    <p><%= review.content %></p>
-    <form action="/reviews/<%= review.id %>" method="GET">
-        <input type="submit" value="View">
+    <p>Comment: <%= review.content %></p>
+
+    <form action="/reviews/<%= review.id %>" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="PATCH">
+        <input type="submit" value="Edit">
     </form>
 
-    
+    <form action="/reviews/<%= review.id %>/delete" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+
     <br><br>
 <% end %>
 

@@ -3,6 +3,8 @@
 
 <p><%= @movie.description %></p><br>
 
+<p>Movie added by: <%= @movie.user.username %></p><br>
+
 <form action="/" method="GET">
     <input type="submit" value="All Movies">
 </form>
@@ -36,9 +38,9 @@
     <br><p>No reviews yet!</p>
 <% else %>
     <% @movie.reviews.each do |review| %>
-        <p><%= review.user.username %></p>
+        <p>User: <%= review.user.username %></p>
         <p>Rating: <%= review.rating %>/5</p>
-        <p><%= review.content %></p>
+        <p>Comment: <%= review.content %></p>
         
         <% if review.user == current_user %>
         <form action="/reviews/<%= review.id %>" method="POST">
