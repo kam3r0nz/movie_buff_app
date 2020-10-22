@@ -33,7 +33,7 @@
     <p><input type="hidden" name="date" id="date" value="<%= Time.now.strftime("%m/%d/%Y") %>"></p>
     <input type="hidden" name="movie" value="<%= @movie.id %>">
     <p><label for="rating">Rating:</label>
-    <input type="number" min="0" max="5" name="rating" id="rating">/5</p>
+    <input type="number" min="0" max="5" name="rating" id="rating" required>/5</p>
     <p><label for="comment">Comment:</label>
     <textarea name="comment" id="comment"></textarea></p>
     <input type="submit" value="Add Review">
@@ -47,7 +47,11 @@
         <p>User: <%= review.user.username %></p>
         <p>Date: <%= review.date %></p>
         <p>Rating: <%= review.rating %>/5</p>
-        <p>Comment: <%= review.comment %></p>
+        <% if review.comment.empty? %>
+            <p><em>No comment</em></p>
+        <% else %>
+            <p>Comment: <%= review.comment %></p>
+        <% end %>
         
         <% if review.user == current_user %>
             <form action="/reviews/<%= review.id %>/edit" method="GET">

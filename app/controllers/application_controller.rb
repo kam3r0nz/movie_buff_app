@@ -12,8 +12,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    user = User.find_by(session[:user_id])
     if logged_in?
+      user = User.find_by(session[:user_id])
       redirect "/users/#{user.id}"
     else
       erb :index

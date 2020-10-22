@@ -10,8 +10,8 @@ movie3 = Movie.create(title: "A Nightmare on Elm Street", genre: "Horror", relea
 
 movie4 = Movie.create(title: "Smiley Face", genre: "Comedy", release_year: 2007, director: "Gregg Araki", description: "After a young actress unknowingly eats her roommate's marijuana cupcakes, her day becomes a series of misadventures.", user: User.find_by(username: "kam3r0nz"))
 
-movie5 = Movie.create(title: "Poultrygeist: Night of the Chicken Dead", genre: "Comedy", release_year: 2006, director: "Lloyd Kaufman", description: "Zombified chickens attempt to kill the fast-food workers that cook them in a restaurant built on an ancient burial ground.",user: User.find_by(username: "iluvCatz"))
+movie5 = Movie.create(title: "Poultrygeist: Night of the Chicken Dead", genre: "Comedy", release_year: 2006, director: "Lloyd Kaufman", description: "Zombified chickens attempt to kill the fast-food workers that cook them in a restaurant built on an ancient burial ground.", user: User.find_by(username: "iluvCatz"))
 
-review1 = Review.create(user: User.find_by(username: "kam3r0nz"), date: "10/28/2020", rating: 4, content: "This was an excellent movie and I would definitely watch again!", movie: Movie.first)
+review1 = Review.create(user: User.find_by(username: "kam3r0nz"), date: "10/28/2020", rating: 4, comment: "This was an excellent movie and I would definitely watch again!", movie: Movie.first)
 
-review2 = Review.create(user: User.find_by(username: "iluvCatz"), date: "06/02/1993", rating: 1, content: "Would not recommend...", movie: Movie.last)
+review2 = Review.create(user: User.find_by(username: "iluvCatz"), date: "06/02/1993", rating: 1, comment: "Would not recommend...", movie: Movie.last)

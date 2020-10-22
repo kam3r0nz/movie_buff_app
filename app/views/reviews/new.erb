@@ -1,5 +1,5 @@
 <form action="/reviews" method="POST">
-    <p><input type="hidden" name="username" id="name" value="<%= current_user.username %>"></p>
+    <p><input type="hidden" name="user" id="user" value="<%= current_user.username %>"></p>
     <p><input type="hidden" name="date" id="date" value="<%= Time.now.strftime("%m/%d/%Y") %>"></p>
     <p><label for="movie">Movie:</label>
     <select name="movie" id="movie">
