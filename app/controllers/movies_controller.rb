@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
     get '/movies' do
+        @movies = current_user.movies
         if logged_in?
-            @movies = current_user.movies
             erb :'movies/index'
         else
             redirect "/login"
@@ -22,9 +22,8 @@ class MoviesController < ApplicationController
     end
 
     get '/movies/:id' do
+        @movie = Movie.find(params[:id])
         if logged_in?
-            @movie = Movie.find(params[:id])
-            @movies = Movie.all
             erb :'movies/show'
         else
             redirect "/login"
@@ -32,8 +31,8 @@ class MoviesController < ApplicationController
     end
 
     get '/movies/:id/edit' do
+        @movie = Movie.find(params[:id])
         if logged_in?
-            @movie = Movie.find(params[:id])
             erb :'movies/edit'
         else
             redirect "/login"

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     get '/reviews' do
+        @reviews = current_user.reviews
         if logged_in?
-            @reviews = current_user.reviews
             erb :'/reviews/index'
         else
             redirect "/login"
@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
     end
 
     get '/reviews/new' do
+        @movies = Movie.all
         if logged_in?
-            @movies = Movie.all
             erb :'/reviews/new'
         else
             redirect "/login"
@@ -23,8 +23,8 @@ class ReviewsController < ApplicationController
     end
 
     get '/reviews/:id' do
+        @review = Review.find(params[:id])
         if logged_in?
-            @review = Review.find(params[:id])
             erb :'/reviews/show'
         else
             redirect '/login'
@@ -32,8 +32,8 @@ class ReviewsController < ApplicationController
     end
 
     get '/reviews/:id/edit' do
+        @review = Review.find(params[:id])
         if logged_in?
-            @review = Review.find(params[:id])
             erb :'/reviews/edit'
         else
             redirect '/login'
