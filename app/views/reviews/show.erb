@@ -3,6 +3,10 @@
 <p>Rating: <%= @review.rating %>/5</p>
 <p>Comment: <%= @review.content %></p>
 
+<form action="/movies/<%= @review.movie.id %>" method="GET">
+    <input type="submit" value="Back to Movie">
+</form>
+
 <form action="/reviews/<%= @review.id %>/edit" method="GET">
     <input type="submit" value="Edit">
 </form>
