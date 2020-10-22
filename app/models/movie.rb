@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
     belongs_to :user
     has_many :reviews
-    validates :title, uniqueness: true
+    validates_presence_of :title, :genre, :release_year, :director
+    validates_uniqueness_of :title
 end
