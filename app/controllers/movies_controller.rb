@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
             redirect '/movies/new'
         else
             @movie = Movie.create(title: params[:title], genre: params[:genre], release_year: params[:release_year], director: params[:director], description: params[:description], user: current_user)
-            flash[:success] = "Movie has been added to collection."
+            flash[:success] = "Movie successfully added."
             redirect "/movies/#{@movie.id}"
         end
     end
@@ -56,6 +56,7 @@ class MoviesController < ApplicationController
     delete '/movies/:id/delete' do
         @movie = Movie.find(params[:id])
         @movie.delete
+        flash[:success] = "Movie successfully deleted."
         redirect '/movies'
     end
 end
