@@ -10,7 +10,7 @@
 </form>
 
 <form action="http://www.google.com/search" method="get" target="_blank">
-    <input type="hidden" name="q" value="<%= @movie.title %>"/>
+    <input type="hidden" name="q" value="<%= @movie.title %> <%= @movie.director %>"/>
     <input type="submit" value="More Info" />
 </form>
 

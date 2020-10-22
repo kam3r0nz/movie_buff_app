@@ -26,10 +26,11 @@
 
   .wrapper {
     background-color: #206a5d;
-    margin: 16px auto;
+    margin: 0px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 75%;
+    height: auto; 
     opacity: 0.9;
   }
 
@@ -173,6 +174,7 @@
 
   .branding {
     clear: both;
+    text-align: right;
   }
 
   footer.branding {
