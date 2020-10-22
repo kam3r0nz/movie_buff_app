@@ -4,6 +4,10 @@
     <input type="submit" value="Add Movie">
 </form><br><br>
 
+<% if @movies.size == 0 %>
+    No movies yet!
+<% end %>
+
 <% @movies.each do |movie| %>
    • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
 <% end %>

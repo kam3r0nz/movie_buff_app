@@ -4,6 +4,10 @@
     <input type="submit" value="Add Review">
 </form><br><br>
 
+<% if @reviews.size == 0 %>
+    No reviews yet!
+<% end %>
+
 <% @reviews.each do |review| %>
     <h4><%= review.movie.title %></h4>
     <p>Date: <%= review.date %></p>

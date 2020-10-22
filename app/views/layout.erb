@@ -20,13 +20,19 @@
       <h1>Movie Buff</h1>
       <a href="/">Home</a> &#8226; 
       <% if logged_in? %>
-        <a href="/movies">Your Movies</a> &#8226;
-        <a href="/reviews">Your Reviews</a> &#8226;
+        <a href="/movies">My Movies</a> &#8226;
+        <a href="/reviews">My Reviews</a> &#8226;
         <a href="/logout">Log out</a>
       <% else %>
         <a href="/login">Log in</a> &#8226; <a href="/signup">Sign up</a>
       <% end%>
-      </div><br><br>
+      </div><br>
+
+      <% flash_types.select{ |kind| flash.has?(kind) }.each do |kind| %>
+          <div class="flash <%= kind %>" id="message" style="color: #900909; font-weight: bold; padding: 5px; text-align: center;">
+              <%= flash[kind] %>
+          </div>
+      <% end %><br>
 
       <%= yield %>
 
