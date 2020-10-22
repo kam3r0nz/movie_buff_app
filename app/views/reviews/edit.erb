@@ -2,10 +2,9 @@
     <input type="hidden" id="hidden" name="_method" value="patch">
     <p><label for="name">Movie:</label>
     <input type="text" name="name" id="name" value="<%= @review.movie.title %>" readonly></p>
-    <p><label for="text">Date:</label>
-    <input type="text" name="date" id="text" value="<%= Time.now.strftime("%m/%d/%Y") %>" readonly></p>
+    <input type="hidden" name="date" id="text" value="<%= Time.now.strftime("%m/%d/%Y") %>">
     <p><label for="rating">Rating:</label>
-    <input type="number" min="0" max="5"  name="rating" id="rating" value="<%= @review.rating %>">/5</p>
+    <input type="number" min="0" max="5"  name="rating" id="rating" value="<%= @review.rating %>" required>/5</p>
     <p><label for="comment">Comment:</label>
     <textarea name="comment" id="comment"><%= @review.comment %></textarea></p>
     <input type="submit" value="Save">

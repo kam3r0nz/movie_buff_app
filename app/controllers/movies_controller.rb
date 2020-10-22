@@ -54,9 +54,9 @@ class MoviesController < ApplicationController
     end
 
     delete '/movies/:id/delete' do
+        flash[:success] = "Movie successfully deleted."
         @movie = Movie.find(params[:id])
         @movie.delete
-        flash[:success] = "Movie successfully deleted."
         redirect '/movies'
     end
 end

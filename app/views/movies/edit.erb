@@ -3,13 +3,13 @@
 <form action="/movies/<%= @movie.id %>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
     <p><label for="title">Title:</label>
-    <input type="text" name="title" id="title" value="<%= @movie.title %>"></p>
+    <input type="text" name="title" id="title" value="<%= @movie.title %>" required></p>
     <p><label for="genre">Genre:</label>
-    <input type="text" name="genre" id="genre" value="<%= @movie.genre %>"></p>
+    <input type="text" name="genre" id="genre" value="<%= @movie.genre %>" required></p>
     <p><label for="release_year">Year of Release:</label>
-    <input type="number" min="1900" max="2020" name="release_year" id="release_year" value="<%= @movie.release_year %>"></p>
+    <input type="number" min="1900" max="2020" name="release_year" id="release_year" value="<%= @movie.release_year %>" required></p>
     <p><label for="director">Director:</label>
-    <input type="text" name="director" id="director" value="<%= @movie.director %>"></p>
+    <input type="text" name="director" id="director" value="<%= @movie.director %>" required></p>
     <p><label for="description">Description:</label>
     <textarea name="description" id="title"><%= @movie.description %></textarea></p>
     <input type="submit" value="Save Changes">
