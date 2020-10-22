@@ -11,7 +11,7 @@
     <p><label for="director">Director:</label>
     <input type="text" name="director" id="director" value="<%= @movie.director %>" required></p>
     <p><label for="description">Description:</label>
-    <textarea name="description" id="title"><%= @movie.description %></textarea></p>
+    <textarea name="description" id="title" required><%= @movie.description %></textarea></p>
     <input type="submit" value="Save Changes">
 </form>
 
