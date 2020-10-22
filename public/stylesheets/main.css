@@ -67,6 +67,13 @@
     opacity: 1; 
   }
 
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
   input[type="submit"]:hover {
     background-color: #81b214;
     border: 1px solid #81b214;
