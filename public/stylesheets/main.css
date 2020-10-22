@@ -78,19 +78,11 @@
     background-color: transparent;
     border: 1px solid black;
     font-size: 15px;
-    width: 200px;
+    width: 400px;
     height: 50px;
     padding: 5px;
     
   } 
-
-  label {
-    display: inline-block;
-    float: left;
-    clear: left;
-    padding: 5px;
-    text-align: right;
-  }
 
   hr {
     background-color: #000;
@@ -136,6 +128,7 @@
 
   p {
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 17px;
   }
 
   a, a:link, a:visited {
