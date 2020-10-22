@@ -1,7 +1,7 @@
 <h4><%= @review.movie.title %></h4>
 <p>Date: <%= @review.date %></p>
 <p>Rating: <%= @review.rating %>/5</p>
-<p>Comment: <%= @review.content %></p>
+<p>Comment: <%= @review.comment %></p>
 
 <form action="/movies/<%= @review.movie.id %>" method="GET">
     <input type="submit" value="Back to Movie">

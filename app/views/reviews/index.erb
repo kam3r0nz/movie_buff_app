@@ -1,8 +1,4 @@
-<h3>Your Reviews:</h3>
-
-<form action="/reviews/new" method="GET">
-    <input type="submit" value="Add Review">
-</form><br><br>
+<h3>My Reviews</h3>
 
 <% if @reviews.size == 0 %>
     No reviews yet!
@@ -12,7 +8,7 @@
     <h4><%= review.movie.title %></h4>
     <p>Date: <%= review.date %></p>
     <p>Rating: <%= review.rating %>/5</p>
-    <p>Comment: <%= review.content %></p>
+    <p>Comment: <%= review.comment %></p>
 
     <form action="/reviews/<%= review.id %>/edit" method="GET">
         <input type="submit" value="Edit">

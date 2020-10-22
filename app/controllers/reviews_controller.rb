@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     get '/reviews' do
-        @reviews = current_user.reviews
         if logged_in?
+            @reviews = current_user.reviews
             erb :'/reviews/index'
         else
             redirect "/login"
@@ -18,8 +18,8 @@ class ReviewsController < ApplicationController
     end
 
     post '/reviews' do
-        @review = Review.create(date: params[:date], rating: params[:rating], content: params[:content], user: current_user, movie_id: params[:movie])
-        redirect "/reviews/#{@review.id}"
+        @review = Review.create(date: params[:date], rating: params[:rating], comment: params[:comment], user: current_user, movie_id: params[:movie])
+        redirect "/movies/#{@review.movie.id}"
     end
 
     get '/reviews/:id' do
@@ -42,13 +42,13 @@ class ReviewsController < ApplicationController
 
     patch '/reviews/:id' do
         @review = Review.find(params[:id])
-        @review.update(date: params[:date], rating: params[:rating], content: params[:content])
-        redirect "/reviews/#{@review.id}"
+        @review.update(date: params[:date], rating: params[:rating], comment: params[:comment])
+        redirect "/movies/#{@review.movie.id}"
     end
 
     delete '/reviews/:id/delete' do
         @review = Review.find(params[:id])
         @review.delete
-        redirect "/"
+        redirect back
     end
 end

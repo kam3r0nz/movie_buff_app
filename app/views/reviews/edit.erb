@@ -6,8 +6,8 @@
     <input type="text" name="date" id="text" value="<%= Time.now.strftime("%m/%d/%Y") %>" readonly></p>
     <p><label for="rating">Rating:</label>
     <input type="number" min="0" max="5"  name="rating" id="rating" value="<%= @review.rating %>">/5</p>
-    <p><label for="content">Comments:</label>
-    <textarea name="content" id="content"><%= @review.content %></textarea></p>
+    <p><label for="comment">Comments:</label>
+    <textarea name="comment" id="comment"><%= @review.comment %></textarea></p>
     <input type="submit" value="Save">
 </form>
 

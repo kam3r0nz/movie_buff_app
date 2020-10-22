@@ -6,10 +6,10 @@
         <% @movies.each do |movie| %>
         <option value="<%= movie.id %>"><%= movie.title %>
         <% end %>
-    </select>
+    </select></p>
     <p><label for="rating">Rating:</label>
     <input type="number" min="0" max="5" name="rating" id="rating">/5</p>
-    <p><label for="content">Comments:</label>
-    <textarea name="content" id="content"></textarea></p>
+    <p><label for="comment">Comments:</label>
+    <textarea name="comment" id="comment"></textarea></p>
     <input type="submit">
 </form>

@@ -28,11 +28,17 @@
 
 <h3>Reviews</h3>
 
-<form action="/reviews/new" method="GET">
+<form action="/reviews" method="POST">
+    <p><input type="hidden" name="username" id="name" value="<%= current_user.username %>"></p>
+    <p><input type="hidden" name="date" id="date" value="<%= Time.now.strftime("%m/%d/%Y") %>"></p>
+    <input type="hidden" name="movie" value="<%= @movie.id %>">
+    <p><label for="rating">Rating:</label>
+    <input type="number" min="0" max="5" name="rating" id="rating">/5</p>
+    <p><label for="comment">Comment:</label>
+    <textarea name="comment" id="comment"></textarea></p>
     <input type="submit" value="Add Review">
-</form>
+</form><br><br>
 
-<br><br>
 
 <% if @movie.reviews.size == 0 %>
     <p>No reviews yet!</p>
@@ -41,7 +47,7 @@
         <p>User: <%= review.user.username %></p>
         <p>Date: <%= review.date %></p>
         <p>Rating: <%= review.rating %>/5</p>
-        <p>Comment: <%= review.content %></p>
+        <p>Comment: <%= review.comment %></p>
         
         <% if review.user == current_user %>
             <form action="/reviews/<%= review.id %>/edit" method="GET">
