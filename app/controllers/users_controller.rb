@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         if params[:username] == "" || params[:password] == ""
             flash[:error] = "Please enter a username and password."
             redirect '/login'
-        elsif !user.authenticate(params[:password])
+        elsif user && !user.authenticate(params[:password])
             flash[:error] = "Incorrect password."
             redirect '/login'
         else
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     get '/logout' do
         if logged_in?
             session.clear
-            redirect '/login'
+            redirect '/'
         else
             redirect '/'
         end

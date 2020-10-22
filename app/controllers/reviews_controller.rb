@@ -44,6 +44,7 @@ class ReviewsController < ApplicationController
     patch '/reviews/:id' do
         @review = Review.find(params[:id])
         @review.update(date: params[:date], rating: params[:rating], comment: params[:comment])
+        flash[:success] = "Your changes have been saved."
         redirect "/movies/#{@review.movie.id}"
     end
 

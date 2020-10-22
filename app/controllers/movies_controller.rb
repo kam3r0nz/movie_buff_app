@@ -50,6 +50,7 @@ class MoviesController < ApplicationController
     patch '/movies/:id' do
         @movie = Movie.find(params[:id])
         @movie.update(title: params[:title], genre: params[:genre], release_year: params[:release_year], director: params[:director], description: params[:description])
+        flash[:success] = "Your changes have been saved."
         redirect "/movies/#{@movie.id}"
     end
 
