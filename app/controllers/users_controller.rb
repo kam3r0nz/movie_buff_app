@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
     get '/signup' do
         erb :'users/signup'
     end
@@ -61,5 +60,4 @@ class UsersController < ApplicationController
             redirect '/'
         end
     end
-
 end
