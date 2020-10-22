@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20201022200905) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string  "name"
     t.text    "date"
     t.integer "rating"
     t.string  "comment"

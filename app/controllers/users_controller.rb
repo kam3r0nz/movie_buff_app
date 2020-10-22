@@ -52,6 +52,14 @@ class UsersController < ApplicationController
         end
     end
 
+    delete '/users/:id/delete' do
+        flash[:success] = "Account successfully deleted."
+        @user = User.find_by(params[:id])
+        @user.delete
+        session.clear
+        redirect '/'
+    end
+
     get '/logout' do
         if logged_in?
             session.clear

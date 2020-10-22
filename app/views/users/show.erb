@@ -7,4 +7,9 @@
 
 <% @movies.each do |movie| %>
    • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
-<% end %>
+<% end %><br><br>
+
+<form action="/users/<%= @user.id %>/delete" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" onclick="myFunction()" value="Delete Account">
+</form>
