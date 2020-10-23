@@ -30,7 +30,7 @@
     max-width: 960px;
     padding: 2.25%;
     width: 75%;
-    height: 50%; 
+    height: 100%; 
     opacity: 0.9;
   }
 
@@ -60,6 +60,11 @@
     cursor: text;
     border: 1px solid #000;
     margin: 2px;
+  }
+  
+  input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
   ::placeholder { 
@@ -139,7 +144,7 @@
   }
 
   a, a:link, a:visited {
-    color: black;
+    color: #000;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 2px;
