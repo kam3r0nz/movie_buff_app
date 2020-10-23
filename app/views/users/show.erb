@@ -1,4 +1,6 @@
+<% if logged_in? %>
 <h2>Hello there, <%= current_user.username %>!</h2>
+<% end %>
 <h3>All Movies</h3>
 
 <form action="/movies/new" method="GET">

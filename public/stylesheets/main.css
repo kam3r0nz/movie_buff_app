@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-image: url("https://i.ibb.co/r5xQv8t/popcorn-4885565-1920.png");
+    background-image: url('/images/popcorn.png');
     background-attachment: fixed;
     background-size: cover;
     background-blend-mode: multiply;
@@ -22,6 +22,22 @@
     font-family: 'Roboto Condensed', sans-serif;
     line-height: 20px;
     letter-spacing: -0.5px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 50px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background:  #444;
   }
 
   .wrapper {
