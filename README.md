@@ -13,9 +13,9 @@ $ `bundle install`
 
 ## Usage
 
-After cloning the repository and running bundle:
-Step 1) Run: `rake db:migrate` <br />
-Step 2) Run: `rake db:seed` <br />
+After cloning the repository and running bundle: <br>
+Step 1) Run: `rake db:migrate` <br>
+Step 2) Run: `rake db:seed` <br>
 Step 3) Run: `shotgun`
 
 ## Contributing
