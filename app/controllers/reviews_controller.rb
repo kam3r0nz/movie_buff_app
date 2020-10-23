@@ -49,8 +49,8 @@ class ReviewsController < ApplicationController
     end
 
     delete '/reviews/:id/delete' do
-        flash[:success] = "Review successfully deleted."
         @review = Review.find(params[:id])
+        flash[:success] = "Review successfully deleted."
         @review.delete
         redirect back
     end

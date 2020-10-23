@@ -25,6 +25,7 @@ class UsersController < ApplicationController
                 session[:user_id] = user.id
                 redirect "/users/#{user.id}"
             else
+                flash[:error] = "Account could not be found."
                 redirect '/login'
             end
         end
@@ -36,9 +37,9 @@ class UsersController < ApplicationController
             flash[:error] = "Username is already taken."
             redirect '/signup'
         else
-            user = User.create(username: params[:username], password: params[:password])
-            session[:user_id] = user.id
-            redirect "/users/#{user.id}"
+            @user = User.create(username: params[:username], password: params[:password])
+            session[:user_id] = @user.id
+            redirect "/users/#{@user.id}"
         end
     end
 
