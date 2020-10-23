@@ -17,7 +17,8 @@
   <body>
     <div class="wrapper">
       <div class="header">
-        <h1>Movie Buff</h1><br>
+        <h1>Movie Buff</h1>
+
         <strong><a href="/">Home</a> &#8226; 
         <% if logged_in? %>
           <a href="/movies">My Movies</a> &#8226;
@@ -26,6 +27,7 @@
         <% else %>
           <a href="/login">Log in</a> &#8226; <a href="/signup">Sign up</a>
         <% end%></strong><br><br>
+        
         <% flash_types.select{ |kind| flash.has?(kind) }.each do |kind| %>
           <center><div class="flash <%= kind %>" id="message" style="color: #8A0707; font-size: 16px; padding: 3px; text-align: center; border-radius: 7px; font-weight: bold;">
           <%= flash[kind] %>
