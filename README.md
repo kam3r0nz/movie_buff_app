@@ -1,7 +1,7 @@
 
 # Movie Buff App
 
-Welcome to the easiest application to track your blood pressure (BP). This app provides a private and convenient way for people to collect their BP readings. This program is multi-purposed and can be use simply for personal usage or as a quick way to update a users doctor about their blood pressure. Either way, I hope this software brings some ease to your medical life! Heres a live [link](https://sinatra-bp-tracker.herokuapp.com/readings).
+This application allows a user to keep track of their collection of movies. A user can also add reviews to movies that other user's have added. If you have a lot of movies you would like to keep track of, this is the app for you!
 
 ## Installation
 
@@ -13,9 +13,9 @@ $ `bundle install`
 
 ## Usage
 
-After cloning the repository and running bundle:
-Step 1) Run: `rake db:migrate` <br />
-Step 2) Run: `rake db:seed` <br />
+After cloning the repository and running bundle: <br>
+Step 1) Run: `rake db:migrate` <br>
+Step 2) Run: `rake db:seed` <br>
 Step 3) Run: `shotgun`
 
 ## Contributing
