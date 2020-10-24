@@ -1,6 +1,7 @@
 <% if logged_in? %>
-<h2>Hello there, <%= current_user.username %>!</h2>
+    <h2>Hello there, <%= current_user.username %>!</h2>
 <% end %>
+
 <h3>All Movies</h3>
 
 <form action="/movies/new" method="GET">
@@ -8,10 +9,10 @@
 </form><br><br>
 
 <% @movies.each do |movie| %>
-   • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
+    • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
 <% end %><br><br>
 
 <form action="/users/<%= @user.id %>/delete" method="POST">
     <input type="hidden" id="hidden" name="_method" value="DELETE">
-    <input type="submit" onclick="myFunction()" value="Delete Account">
+    <input type="submit" value="Delete Account">
 </form>
