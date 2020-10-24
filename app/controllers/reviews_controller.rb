@@ -22,16 +22,6 @@ class ReviewsController < ApplicationController
         flash[:success] = "Review successfully added."
         redirect "/movies/#{@review.movie.id}"
     end
-
-    get '/reviews/:id' do
-        @review = Review.find(params[:id])
-        if logged_in?
-            erb :'/reviews/show'
-        else
-            redirect '/login'
-        end
-    end
-
     get '/reviews/:id/edit' do
         @review = Review.find(params[:id])
         if logged_in?
