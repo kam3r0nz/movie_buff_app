@@ -44,10 +44,14 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        @user = User.find(params[:id])
         @movies = Movie.all
         if logged_in?
-            erb :'users/show'
+            if User.exists?(params[:id])
+                @user = User.find(params[:id])
+                erb :'users/show'
+            else
+                redirect back
+            end
         else
             redirect '/login'
         end
