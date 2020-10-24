@@ -1,64 +1,74 @@
-<h3><%= @movie.title %></h3>
-<h4><%= @movie.genre %> | <%= @movie.release_year %> | Directed by: <%= @movie.director %></h4>
+<% if @movie %>
+    <h3><%= @movie.title %></h3>
+    <h4><%= @movie.genre %> | <%= @movie.release_year %> | Directed by: <%= @movie.director %></h4>
 
-<p><%= @movie.description %></p><br>
+    <p><%= @movie.description %></p><br>
 
-<p>Movie added by: <%= @movie.user.username %></p><br>
+    <p>Movie added by: <%= @movie.user.username %></p><br>
 
-<form action="/" method="GET">
-    <input type="submit" value="All Movies">
-</form>
-
-<form action="http://www.google.com/search" method="get" target="_blank">
-    <input type="hidden" name="q" value="<%= @movie.title %> <%= @movie.director %>"/>
-    <input type="submit" value="More Info" />
-</form>
-
-<% if @movie.user == current_user %>
-<form action="/movies/<%= @movie.id %>/edit" method="GET">
-    <input type="submit" value="Edit">
-</form>
-
-    <form action="/movies/<%= @movie.id %>/delete" method="POST">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
+    <form action="/" method="GET">
+        <input type="submit" value="All Movies">
     </form>
-<% end %><br><br>
+
+    <form action="http://www.google.com/search" method="get" target="_blank">
+        <input type="hidden" name="q" value="<%= @movie.title %> <%= @movie.director %>"/>
+        <input type="submit" value="More Info" />
+    </form>
+
+    <% if @movie.user == current_user %>
+        <form action="/movies/<%= @movie.id %>/edit" method="GET">
+            <input type="submit" value="Edit">
+        </form>
+
+        <form action="/movies/<%= @movie.id %>/delete" method="POST">
+            <input type="hidden" id="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+        </form>
+    <% end %><br><br>
 
 
-<h3>Reviews</h3>
+    <h3>Reviews</h3>
 
-<form action="/reviews" method="POST">
-    <p><input type="hidden" name="username" id="name" value="<%= current_user.username %>"></p>
-    <p><input type="hidden" name="date" id="date" value="<%= Time.now.strftime("%m/%d/%Y") %>"></p>
-    <input type="hidden" name="movie" value="<%= @movie.id %>">
-    <p><label for="rating">Rating:</label>
-    <input type="number" min="0" max="5" name="rating" id="rating" required>/5</p>
-    <p><label for="comment">Comment:</label>
-    <textarea name="comment" id="comment" required></textarea></p>
-    <input type="submit" value="Add Review">
-</form><br><br>
+    <form action="/reviews" method="POST">
+        <p><input type="hidden" name="username" id="name" value="<%= current_user.username %>"></p>
+        <p><input type="hidden" name="date" id="date" value="<%= Time.now.strftime("%m/%d/%Y") %>"></p>
+        <input type="hidden" name="movie" value="<%= @movie.id %>">
+        <p><label for="rating">Rating:</label>
+        <input type="number" min="0" max="5" name="rating" id="rating" required>/5</p>
+        <p><label for="comment">Comment:</label>
+        <textarea name="comment" id="comment" required></textarea></p>
+        <input type="submit" value="Add Review">
+    </form><br><br>
 
 
-<% if @movie.reviews.size == 0 %>
-    <p>No reviews yet!</p>
-<% else %>
-    <% @movie.reviews.each do |review| %>
-        <p>User: <%= review.user.username %></p>
-        <p>Date: <%= review.date %></p>
-        <p>Rating: <%= review.rating %>/5</p>
-        <p>Comment: <%= review.comment %></p>
+    <% if @movie.reviews.size == 0 %>
+            <p>No reviews yet!</p>
+    <% else %>
+        <% @movie.reviews.each do |review| %>
+            <p>User: <%= review.user.username %></p>
+            <p>Date: <%= review.date %></p>
+            <p>Rating: <%= review.rating %>/5</p>
+            <p>Comment: <%= review.comment %></p>
         
-        <% if review.user == current_user %>
-            <form action="/reviews/<%= review.id %>/edit" method="GET">
-                <input type="submit" value="Edit">
-            </form>
+            <% if review.user == current_user %>
+                <form action="/reviews/<%= review.id %>/edit" method="GET">
+                    <input type="submit" value="Edit">
+                </form>
 
-            <form action="/reviews/<%= review.id %>/delete" method="POST">
-                <input type="hidden" id="hidden" name="_method" value="DELETE">
-                <input type="submit" value="Delete">
-            </form>
+                <form action="/reviews/<%= review.id %>/delete" method="POST">
+                    <input type="hidden" id="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Delete">
+                </form>
+            <% end %>
+            <hr />
         <% end %>
-        <hr />
     <% end %>
+<% else %>
+<h3>Oops</h3>
+
+<center><h4>Sorry this movie has not been added yet.</h4><br>
+<form action="/movies/new" method="GET">
+    <input type="submit" value="Add Movie">
+</form>
+</center>
 <% end %>
