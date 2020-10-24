@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
     end
 
     get '/movies/:id' do
-        @movie = Movie.find(params[:id]) if @movie
+        @movie = Movie.find(params[:id])
         if logged_in?
             erb :'movies/show'
         else

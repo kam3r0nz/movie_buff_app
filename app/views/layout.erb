@@ -29,7 +29,7 @@
         <% end%></strong><br><br>
 
         <% flash_types.select{ |kind| flash.has?(kind) }.each do |kind| %>
-          <center><div class=" flash <%= kind %>" id="message" style="color: #fff; font-size: 18px; font-weight: bold; padding: 3px; text-align: center; border-radius: 7px;">
+          <center><div class="flash <%= kind %>" style="color: #fff; font-size: 20px; font-weight: bold; padding: 3px; text-align: center;">
             <%= flash[kind] %>
           </div></center>
         <% end %>
