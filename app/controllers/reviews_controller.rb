@@ -15,9 +15,13 @@ class ReviewsController < ApplicationController
     end
 
     get '/reviews/:id/edit' do
-        @review = Review.find(params[:id])
         if logged_in?
-            erb :'/reviews/edit'
+            if Review.exists?(params[:id])
+                @review = Review.find(params[:id])
+                erb :'/reviews/edit'
+            else
+                redirect back
+            end
         else
             redirect '/login'
         end
