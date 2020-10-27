@@ -50,10 +50,8 @@
     max-width: 960px;
     padding: 2.25%;
     width: 75%;
-    height: 90%; 
+    height: auto; 
     opacity: 0.9;
-    overflow: scroll; 
-    overflow-x: hidden;
   }
 
   .header {
