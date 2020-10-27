@@ -1,17 +1,22 @@
-<h3>Edit Review</h3>
+<% if @review.user == current_user %>
+    <h3>Edit Review</h3>
 
-<form action="/reviews/<%= @review.id %>" method="POST">
-    <input type="hidden" id="hidden" name="_method" value="patch">
-    <p><label for="name">Movie:</label>
-    <input type="text" name="name" id="name" value="<%= @review.movie.title %>" readonly></p>
-    <input type="hidden" name="date" id="text" value="<%= Time.now.strftime("%m/%d/%Y") %>">
-    <p><label for="rating">Rating:</label>
-    <input type="number" min="0" max="5"  name="rating" id="rating" value="<%= @review.rating %>" required>/5</p>
-    <p><label for="comment">Comment:</label>
-    <textarea name="comment" id="comment" required><%= @review.comment %></textarea></p>
-    <input type="submit" value="Save">
-</form>
+    <form action="/reviews/<%= @review.id %>" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="patch">
+        <p><label for="name">Movie:</label>
+        <input type="text" name="name" id="name" value="<%= @review.movie.title %>" readonly></p>
+        <input type="hidden" name="date" id="text" value="<%= Time.now.strftime("%m/%d/%Y") %>">
+        <p><label for="rating">Rating:</label>
+        <input type="number" min="0" max="5"  name="rating" id="rating" value="<%= @review.rating %>" required>/5</p>
+        <p><label for="comment">Comment:</label>
+        <textarea name="comment" id="comment" required><%= @review.comment %></textarea></p>
+        <input type="submit" value="Save">
+    </form>
 
-<form action="/reviews" method="GET">
-    <input type="submit" value="Cancel">
-</form>
+    <form action="/reviews" method="GET">
+        <input type="submit" value="Cancel">
+    </form>
+<% else %>
+    <p>Sorry, this is not your review to edit!</p><br>
+    <a href="javascript:history.back()">Go Back</a>
+<% end %>
