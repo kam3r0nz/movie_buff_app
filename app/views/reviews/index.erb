@@ -2,21 +2,21 @@
 
 <% if @reviews.size == 0 %>
     No reviews yet!
-<% end %>
+<% else %>
+    <% @reviews.each do |review| %>
+        <h4><%= review.movie.title %></h4>
+        <p>Date: <%= review.date %></p>
+        <p>Rating: <%= review.rating %>/5</p>
+        <p>Comment: <%= review.comment %></p>
 
-<% @reviews.each do |review| %>
-    <h4><%= review.movie.title %></h4>
-    <p>Date: <%= review.date %></p>
-    <p>Rating: <%= review.rating %>/5</p>
-    <p>Comment: <%= review.comment %></p>
+        <form action="/reviews/<%= review.id %>/edit" method="GET">
+            <input type="submit" value="Edit">
+        </form>
 
-    <form action="/reviews/<%= review.id %>/edit" method="GET">
-        <input type="submit" value="Edit">
-    </form>
-
-    <form action="/reviews/<%= review.id %>/delete" method="POST">
-        <input type="hidden" id="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-    </form>
-    <hr />
+        <form action="/reviews/<%= review.id %>/delete" method="POST">
+            <input type="hidden" id="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+        </form>
+        <hr />
+    <% end %>
 <% end %>

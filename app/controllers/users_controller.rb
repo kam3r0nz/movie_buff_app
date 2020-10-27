@@ -26,7 +26,7 @@ class UsersController < ApplicationController
                 redirect "/users/#{user.id}"
             else
                 flash[:error] = "Account could not be found."
-                redirect '/login'
+                redirect '/signup'
             end
         end
     end

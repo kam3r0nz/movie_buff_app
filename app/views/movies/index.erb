@@ -6,8 +6,9 @@
 
 <% if @movies.size == 0 %>
     No movies yet!
-<% end %>
+<% else %>
 
-<% @movies.each do |movie| %>
-   • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
+    <% @movies.each do |movie| %>
+        • <a href="/movies/<%= movie.id %>"><%= movie.title %></a><br>
+    <% end %>
 <% end %>

@@ -29,9 +29,8 @@
 <h3>Reviews</h3>
 
 <form action="/reviews" method="POST">
-    <p><input type="hidden" name="username" id="name" value="<%= current_user.username %>"></p>
-    <p><input type="hidden" name="date" id="date" value="<%= Time.now.strftime("%m/%d/%Y") %>"></p>
-    <input type="hidden" name="movie" value="<%= @movie.id %>">
+    <input type="hidden" name="date" id="date" value="<%= Time.now.strftime("%m/%d/%Y") %>">
+    <input type="hidden" name="movie" value="<%= @movie %>">
     <p><label for="rating">Rating:</label>
     <input type="number" min="0" max="5" name="rating" id="rating" required>/5</p>
     <p><label for="comment">Comment:</label>

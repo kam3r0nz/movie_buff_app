@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201022200905) do
+ActiveRecord::Schema.define(version: 20201018210624) do
 
   create_table "movies", force: :cascade do |t|
     t.string  "title"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20201022200905) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string  "name"
     t.text    "date"
     t.integer "rating"
     t.string  "comment"
