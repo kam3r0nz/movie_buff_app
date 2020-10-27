@@ -14,4 +14,4 @@ movie5 = Movie.create(title: "Poultrygeist: Night of the Chicken Dead", genre: "
 
 review1 = Review.create(user: User.find_by(username: "kam3r0nz"), date: "10/28/2020", rating: 4, comment: "This was an excellent movie and I would definitely watch again!", movie: Movie.first)
 
-review2 = Review.create(user: User.find_by(username: "iluvCatz"), date: "06/02/1993", rating: 1, comment: "Would not recommend...", movie: Movie.last)
+review2 = Review.create(user: User.find_by(username: "kam3r0nz"), date: "06/02/1993", rating: 1, comment: "Would not recommend...", movie: Movie.find_by(title: "Requiem for a Dream"))

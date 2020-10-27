@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
 
     post '/reviews' do
         @review = Review.create(date: params[:date], rating: params[:rating], comment: params[:comment], user: current_user, movie_id: params[:movie_id])
-        @review.save
         flash[:success] = "Review successfully added."
         redirect "/movies/#{@review.movie.id}"
     end
