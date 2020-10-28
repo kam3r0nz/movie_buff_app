@@ -9,7 +9,6 @@ class ReviewsController < ApplicationController
     end
 
     post '/reviews' do
-        binding.pry
         @review = Review.create(date: params[:date], rating: params[:rating], comment: params[:comment], user: current_user, movie_id: params[:movie_id])
         flash[:success] = "Review successfully added."
         redirect "/movies/#{@review.movie.id}"
