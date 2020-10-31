@@ -15,9 +15,9 @@ class ReviewsController < ApplicationController
     end
 
     get '/reviews/:id/edit' do
-        if logged_in?
+        @review = Review.find(params[:id])
+        if logged_in? && @review.user == current_user
             if Review.exists?(params[:id])
-                @review = Review.find(params[:id])
                 erb :'/reviews/edit'
             else
                 redirect back
