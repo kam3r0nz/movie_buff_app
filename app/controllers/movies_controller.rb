@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
         if logged_in?
             erb :'movies/new'
         else
-            redirect "/login"
+            redirect '/login'
         end
     end
 
@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
             @movie = Movie.find(params[:id])
             erb :'movies/show'
         else
-            redirect "/login"
+            redirect '/login'
         end
     end
 
@@ -45,7 +45,7 @@ class MoviesController < ApplicationController
                 redirect back
             end
         else
-            redirect "/login"
+            redirect '/login'
         end
     end
 

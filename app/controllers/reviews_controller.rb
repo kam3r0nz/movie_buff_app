@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
             @reviews = current_user.reviews
             erb :'/reviews/index'
         else
-            redirect "/login"
+            redirect '/login'
         end
     end
 
