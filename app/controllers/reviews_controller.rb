@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     end
 
     post '/reviews' do
-        @review = Review.create(date: params[:date], rating: params[:rating], comment: params[:comment], user: current_user, movie_id: params[:movie_id])
+        @review = current_user.reviews.create(params)
         flash[:success] = "Review successfully added."
         redirect "/movies/#{@review.movie.id}"
     end
@@ -37,6 +37,7 @@ class ReviewsController < ApplicationController
     delete '/reviews/:id/delete' do
         @review = Review.find(params[:id])
         @review.delete
+        flash[:success] = "Review successfully deleted."
         redirect back
     end
 end

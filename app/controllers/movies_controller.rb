@@ -17,25 +17,20 @@ class MoviesController < ApplicationController
     end
 
     post '/movies' do
-        movie = Movie.find_by(title: params[:title])
-        if movie
-            flash[:error] = "Movie has already been added."
-            redirect '/movies/new'
+        if movie = Movie.find_by(title: params[:title])
+            flash.now[:error] = "Movie has already been added."
+            erb :'movies/new'
         else
-            @movie = Movie.create(title: params[:title], genre: params[:genre], release_year: params[:release_year], director: params[:director], description: params[:description], user: current_user)
+            @movie = current_user.movies.create(params)
             flash[:success] = "Movie successfully added."
             redirect "/movies/#{@movie.id}"
         end
     end
 
     get '/movies/:id' do
-        if logged_in?
-            if Movie.exists?(params[:id])
-                @movie = Movie.find(params[:id])
-                erb :'movies/show'
-            else
-                redirect back
-            end
+        if logged_in? && Movie.exists?(params[:id])
+            @movie = Movie.find(params[:id])
+            erb :'movies/show'
         else
             redirect "/login"
         end

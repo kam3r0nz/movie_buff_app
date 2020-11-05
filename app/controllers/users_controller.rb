@@ -32,8 +32,7 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        user = User.find_by(username: params[:username])
-        if user
+        if user = User.find_by(username: params[:username])
             flash[:error] = "Username is already taken."
             redirect '/signup'
         else
@@ -45,13 +44,9 @@ class UsersController < ApplicationController
 
     get '/users/:id' do
         @movies = Movie.all
-        if logged_in?
-            if User.exists?(params[:id])
-                @user = User.find(params[:id])
-                erb :'users/show'
-            else
-                redirect back
-            end
+        if logged_in? && User.exists?(params[:id])
+            @user = User.find(params[:id])
+            erb :'users/show'
         else
             redirect '/login'
         end
