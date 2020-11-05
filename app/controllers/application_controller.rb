@@ -30,5 +30,9 @@ class ApplicationController < Sinatra::Base
     def flash_types
       [:success, :notice, :warning, :error]
     end
+
+    def redirect_if_not_logged_in
+      redirect '/login' if !logged_in?
+    end
   end
 end

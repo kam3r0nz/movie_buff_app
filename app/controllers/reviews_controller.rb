@@ -1,11 +1,8 @@
 class ReviewsController < ApplicationController
     get '/reviews' do
-        if logged_in?
-            @reviews = current_user.reviews
-            erb :'/reviews/index'
-        else
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
+        @reviews = current_user.reviews
+        erb :'/reviews/index'
     end
 
     post '/reviews' do
@@ -15,29 +12,33 @@ class ReviewsController < ApplicationController
     end
 
     get '/reviews/:id/edit' do
-        @review = Review.find(params[:id])
-        if logged_in? && @review.user == current_user
-            if Review.exists?(params[:id])
-                erb :'/reviews/edit'
-            else
-                redirect back
-            end
+        redirect_if_not_logged_in
+        set_review
+        if Review.exists?(params[:id]) && @review.user == current_user
+            erb :'/reviews/edit'
         else
-            redirect '/login'
+            redirect back
         end
     end
 
     patch '/reviews/:id' do
-        @review = Review.find(params[:id])
+        set_review
+        params.delete(:_method)
         @review.update(date: params[:date], rating: params[:rating], comment: params[:comment])
         flash[:success] = "Your changes have been saved."
         redirect "/movies/#{@review.movie.id}"
     end
 
     delete '/reviews/:id/delete' do
-        @review = Review.find(params[:id])
+        set_review
         @review.delete
         flash[:success] = "Review successfully deleted."
         redirect back
+    end
+
+    private
+    
+    def set_review
+        @review = Review.find(params[:id])
     end
 end

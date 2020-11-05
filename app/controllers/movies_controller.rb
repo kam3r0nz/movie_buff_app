@@ -1,19 +1,13 @@
 class MoviesController < ApplicationController
     get '/movies' do
-        if logged_in?
-            @movies = current_user.movies
-            erb :'movies/index'
-        else
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
+        @movies = current_user.movies
+        erb :'movies/index'
     end
 
     get '/movies/new' do
-        if logged_in?
-            erb :'movies/new'
-        else
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
+        erb :'movies/new'
     end
 
     post '/movies' do
@@ -28,38 +22,43 @@ class MoviesController < ApplicationController
     end
 
     get '/movies/:id' do
-        if logged_in? && Movie.exists?(params[:id])
-            @movie = Movie.find(params[:id])
+        redirect_if_not_logged_in
+        set_movie
+        if Movie.exists?(params[:id])
             erb :'movies/show'
         else
-            redirect '/login'
+            redirect back
         end
     end
 
     get '/movies/:id/edit' do
-        @movie = Movie.find(params[:id])
-        if logged_in? && @movie.user == current_user
-            if Movie.exists?(params[:id])
-                erb :'movies/edit'
-            else
-                redirect back
-            end
+        redirect_if_not_logged_in
+        set_movie
+        if Movie.exists?(params[:id]) && @movie.user == current_user
+            erb :'movies/edit'
         else
-            redirect '/login'
+            redirect back
         end
     end
 
     patch '/movies/:id' do
-        @movie = Movie.find(params[:id])
-        @movie.update(title: params[:title], genre: params[:genre], release_year: params[:release_year], director: params[:director], description: params[:description])
+        set_movie
+        params.delete(:_method)
+        @movie.update(params)
         flash[:success] = "Your changes have been saved."
         redirect "/movies/#{@movie.id}"
     end
 
     delete '/movies/:id/delete' do
+        set_movie
         flash[:success] = "Movie successfully deleted."
-        @movie = Movie.find(params[:id])
         @movie.delete
         redirect '/movies'
+    end
+
+    private
+
+    def set_movie
+        @movie = Movie.find(params[:id])
     end
 end

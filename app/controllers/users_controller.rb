@@ -13,21 +13,13 @@ class UsersController < ApplicationController
     end
 
     post '/login' do
-        user = User.find_by(username: params[:username])
-        if params[:username] == "" || params[:password] == ""
-            flash[:error] = "Please enter a username and password."
-            redirect '/login'
-        elsif user && !user.authenticate(params[:password])
-            flash[:error] = "Incorrect password."
-            redirect '/login'
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect "/users/#{@user.id}"
         else
-            if user && user.authenticate(params[:password])
-                session[:user_id] = user.id
-                redirect "/users/#{user.id}"
-            else
-                flash[:error] = "Account could not be found."
-                redirect '/signup'
-            end
+            flash.now[:error] = "Username or password is incorrect."
+            erb :'users/login'
         end
     end
 

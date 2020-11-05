@@ -1,9 +1,7 @@
-<h3>Edit Review</h3>
+<h3>Edit Review for <%= @review.movie.title %></h3>
 
 <form action="/reviews/<%= @review.id %>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="patch">
-    <p><label for="name">Movie:</label>
-    <input type="text" name="name" id="name" value="<%= @review.movie.title %>" readonly></p>
     <input type="hidden" name="date" id="text" value="<%= Time.now.strftime("%m/%d/%Y") %>">
     <p><label for="rating">Rating:</label>
     <input type="number" min="0" max="5"  name="rating" id="rating" value="<%= @review.rating %>" required>/5</p>
